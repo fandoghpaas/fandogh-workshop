@@ -1,0 +1,9 @@
+kind: ExternalService
+name: result
+spec:
+  image: fandoghpaas/result:latest
+  env:
+    - name: PGPASSWORD
+      value: db123
+  resources:
+    memory: 100Mi

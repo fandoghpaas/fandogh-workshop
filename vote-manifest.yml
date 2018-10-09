@@ -1,0 +1,8 @@
+kind: ExternalService
+name: vote
+spec:
+  image: fandoghpaas/vote:latest
+  image_pull_policy: Always
+  port: 80
+  resources:
+    memory: 100Mi

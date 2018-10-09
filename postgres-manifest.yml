@@ -1,0 +1,11 @@
+kind: ManagedService
+name: db
+spec:
+  service_name: postgresql
+  version: 9.4
+  parameters:
+    - name: adminer_enabled
+      value: 'true'
+    - name: postgres_password
+      value: db123
+  
