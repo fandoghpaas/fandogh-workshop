@@ -19,8 +19,8 @@ script:
   - docker build -t fandoghpaas/vote:$TRAVIS_COMMIT ./vote
   - docker build -t fandoghpaas/worker:$TRAVIS_COMMIT ./worker
   - docker build -t fandoghpaas/result:$TRAVIS_COMMIT ./result
-  - fandogh service apply manifests/postgres-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply manifests/redis-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply manifests/result-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply manifests/vote-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply manifests/worker-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - fandogh service apply -f manifests/postgres-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - fandogh service apply -f manifests/redis-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - fandogh service apply -f manifests/result-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - fandogh service apply -f manifests/vote-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - fandogh service apply -f manifests/worker-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
