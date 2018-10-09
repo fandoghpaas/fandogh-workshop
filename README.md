@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/fandoghpaas/fandogh-workshop.svg?branch=master)](https://travis-ci.org/fandoghpaas/fandogh-workshop)
+
+
 Example Voting App
 =========
 
