@@ -1,7 +1,0 @@
-kind: InternalService
-name: worker
-spec:
-  image: fandoghpaas/worker:latest
-  image_pull_policy: Always
-  resources:
-    memory: 100Mi
