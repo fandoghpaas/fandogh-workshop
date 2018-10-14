@@ -5,3 +5,5 @@ spec:
   port_mapping:
     - port: 6379
       target_port: 6379
+  resources:
+    memory: 100Mi

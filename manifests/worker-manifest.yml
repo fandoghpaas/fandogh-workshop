@@ -4,4 +4,4 @@ spec:
   image: fandoghpaas/worker:${VERSION}
   image_pull_policy: Always
   resources:
-    memory: 100Mi
+    memory: ${MEMORY}Mi
