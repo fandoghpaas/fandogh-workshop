@@ -10,7 +10,7 @@
     <link rel='stylesheet' href="{{ url_for('static',filename='stylesheets/style.css') }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
-  <body>
+  <body style="background-color: red;">
     <div id="content-container">
       <div id="content-container-center">
         <h3>{{option_a}} vs {{option_b}}!</h3>
@@ -35,12 +35,12 @@
 
       if(vote == "a"){
         $(".a").prop('disabled', true);
-        $(".a").html('{{option_a}} <i class="fa fa-check-circle"></i>');
+        $(".a").html('{{option_a}} <i class="fa fa-address-book"></i>');
         $(".b").css('opacity','0.5');
       }
       if(vote == "b"){
         $(".b").prop('disabled', true);
-        $(".b").html('{{option_b}} <i class="fa fa-check-circle"></i>');
+        $(".b").html('{{option_b}} <i class="fa fa-address-book"></i>');
         $(".a").css('opacity','0.5');
       }
     </script>
