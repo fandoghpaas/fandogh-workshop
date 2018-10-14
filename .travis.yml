@@ -13,17 +13,7 @@ install:
   - pip install fandogh-cli --upgrade
 # command to run tests
 script:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - echo $TRAVIS_COMMIT  
   - COLLECT_ERROR=True fandogh login --username=$FANDOGH_USERNAME --password=$FANDOGH_PASSWORD
-  - docker build -t fandoghpaas/vote:$TRAVIS_COMMIT ./vote
-  - docker build -t fandoghpaas/worker:$TRAVIS_COMMIT ./worker
-  - docker build -t fandoghpaas/result:$TRAVIS_COMMIT ./result
-  - docker push fandoghpaas/vote:$TRAVIS_COMMIT
-  - docker push fandoghpaas/worker:$TRAVIS_COMMIT
-  - docker push fandoghpaas/result:$TRAVIS_COMMIT
-  - fandogh service apply -d -f manifests/postgres-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply -d -f manifests/redis-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply -d -f manifests/result-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
+  - cd vote; fandogh image publish --version $TRAVIS_COMMIT; cd ..;
   - fandogh service apply -d -f manifests/vote-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
-  - fandogh service apply -d -f manifests/worker-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
