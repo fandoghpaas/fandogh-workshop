@@ -1,0 +1,17 @@
+kind: ExternalService
+name: sorena
+requested_at: '2018-09-22T21:53:53Z'
+spec:
+  domains: []
+  env:
+    - name: NAME
+      value: SORENA
+      hidden: True
+    - name: LAST_NAME
+      value: SARABADANI
+      hidden: False
+  image: test:1.0
+  image_pull_policy: IfNotPresent
+  replicas: 1
+  resources:
+    memory: 200Mi
